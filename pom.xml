@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.xianfu</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>demo-helloWorld</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>helloWorld</name>
+	<name>demo-helloWorld</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -25,31 +25,68 @@
 	</properties>
 
 	<dependencies>
+
+		<!--&lt;!&ndash;http start&ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>org.apache.httpcomponents</groupId>-->
+			<!--<artifactId>httpcore</artifactId>-->
+			<!--<version>4.4.9</version>-->
+		<!--</dependency>-->
+		<!--&lt;!&ndash;http end&ndash;&gt;-->
+
+		<!--json start-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<!--json end-->
+		<!--redis start-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
-
+		<!--redis end-->
+		<!--mvc start-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<!--mvc end-->
+		<!--网页模板 start-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
+		<!--网页模板 end-->
 
+		<!--数据库 start-->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!--数据库 end-->
+
+		<!-- apache utils start -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		<!-- apache utils end -->
+		<!--springboot junit test start-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--springboot junit test end-->
 	</dependencies>
 
 	<build>

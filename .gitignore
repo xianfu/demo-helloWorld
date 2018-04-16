@@ -20,8 +20,8 @@ mvnw.cmd
 *.iws
 *.iml
 *.ipr
-encodings.xml
-vcs.xml
+.idea/encodings.xml
+.idea/vcs.xml
 
 ### NetBeans ###
 /nbproject/private/
