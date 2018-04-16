@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xianfu.mapper.WeChatPlatformMapper">
+
+    <resultMap id="weChatPlatformMap" type="com.xianfu.pojo.PO.WeChatPlatformPO">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="app_id" property="appId"></result>
+        <result column="app_secret" property="appSecret"></result>
+        <result column="access_token" property="accessToken"></result>
+        <result column="token" property="token"></result>
+
+        <result column="created_at" property="createdAt"></result>
+        <result column="updated_at" property="updatedAt"></result>
+        <result column="created_by" property="createdBy"></result>
+        <result column="updated_by" property="updatedBy"></result>
+        <result column="archive" property="archive"></result>
+    </resultMap>
+
+    <sql id="weChatPlatColumn">
+        id, `name`, app_id, app_secret, access_token, token, created_at, updated_at, created_by, updated_by
+    </sql>
+
+    <select id="listWeChatPlatform" resultMap="weChatPlatformMap">
+        SELECT <include refid="weChatPlatColumn"></include>
+        FROM xf_wechat_platform
+        WHERE archive = 1
+    </select>
+
+    <select id="getWeChatInfoByAppId" resultMap="weChatPlatformMap">
+        SELECT <include refid="weChatPlatColumn"></include>
+        FROM xf_wechat_platform
+        WHERE 1=1
+        <if test=" appId != null and appId != '' ">
+            AND app_id = #{appId}
+        </if>
+        LIMIT 1
+    </select>
+
+    <update id="updateWeChatAccessTokenByAppId" parameterType="java.lang.String">
+        UPDATE xf_wechat_platform
+        SET access_token = #{appId},updated_at = NOW(),updated_by = 'updateAccessToken'
+        WHERE app_id = #{accessToken}
+    </update>
+
+</mapper>
