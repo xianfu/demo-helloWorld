@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
@@ -19,6 +20,7 @@ import java.util.List;
  * @author Created by xianfuWang
  * @version 2018/4/16.
  */
+@Component
 public class UpdateWeChatInfo {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UpdateWeChatInfo.class);

@@ -1,7 +1,7 @@
 package com.xianfu.controller.wechat;
 
 import com.alibaba.fastjson.JSON;
-import com.xianfu.common.util.HttpUtils;
+import com.xianfu.controller.BaseController;
 import com.xianfu.pojo.PO.WeChatPlatformPO;
 import com.xianfu.pojo.VO.WeChatPlatformVO;
 import com.xianfu.service.WeChatPlatformService;
@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/weChat")
-public class ManagementController {
+public class ManagementController extends BaseController {
 
     @Autowired
     private WeChatPlatformService weChatPlatformService;
@@ -32,6 +32,7 @@ public class ManagementController {
 
     @RequestMapping(value = "/list")
     public String testGet(HttpServletRequest request) {
+        LOGGER.info("list");
         List<WeChatPlatformPO> weChatPlatformPOs = weChatPlatformService.listWeChatPlatform();
         request.setAttribute("platforms", weChatPlatformPOs);
         return WE_CHAT_LIST;
@@ -40,6 +41,7 @@ public class ManagementController {
     @ResponseBody
     @RequestMapping(value = "/getPlatforms", method = RequestMethod.POST)
     public String getPlatforms(@RequestBody String request) {
+        LOGGER.info("getPlatforms");
         List<WeChatPlatformPO> weChatPlatformPOs = weChatPlatformService.listWeChatPlatform();
 
         List<WeChatPlatformVO> weChatPlatformVOs = new ArrayList<>();
